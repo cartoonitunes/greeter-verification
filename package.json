@@ -1,0 +1,9 @@
+{
+  "name": "greeter-verification",
+  "description": "Verification proof for the Ethereum Greeter (Hello World!) contract",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "solc": "^0.8.34"
+  }
+}
