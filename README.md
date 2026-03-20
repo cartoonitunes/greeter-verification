@@ -71,3 +71,22 @@ node verify.js
 This is the Ethereum "Hello World" - the first program most developers wrote when learning Ethereum in 2015. The `mortal` base contract pattern (owner + suicide) was a standard building block in early Solidity development. The same deployer also deployed the [First Executable Contract](https://github.com/cartoonitunes/first-executable-contract-verification) at block 48,643 using the same compiler, suggesting systematic early experimentation with Solidity.
 
 Part of the [Ethereum History](https://ethereumhistory.com) verification effort - [awesome-ethereum-proofs](https://github.com/cartoonitunes/awesome-ethereum-proofs).
+
+---
+
+## Additional Deployment: "Welcome to Walmart I love you!"
+
+The same compiled Greeter bytecode was deployed a second time by the same address, 684 blocks later on the same day (Frontier Day 1).
+
+**Contract:** [`0x76173df7aceeeb990839dc0c359c4a3ec1e01da7`](https://etherscan.io/address/0x76173df7aceeeb990839dc0c359c4a3ec1e01da7)
+**Block:** 55,365 (August 8, 2015)
+**Deployer:** `0x3d0768da09ce77d25e2d998e6a7b6ed4b9116c2d` (same as HelloWorld at block 48,681)
+**Greeting:** `"Welcome to Walmart I love you!"`
+**Creation bytecode:** 788 bytes
+**Compiler:** soljson v0.1.1+commit.6ff4cd6a, optimizer OFF
+
+### Verification
+
+Exact match: compiled Greeter bytecode (692 bytes) + ABI-encoded constructor arg `"Welcome to Walmart I love you!"` (96 bytes) = 788 bytes. Matches on-chain creation TX byte-for-byte.
+
+The base bytecode is identical to the HelloWorld deployment. The only difference is the constructor argument string. This contract is not listed separately on the /proofs page because it shares the same runtime bytecode as the primary Greeter entry -- it counts as an additional deployment of the same verified contract.
